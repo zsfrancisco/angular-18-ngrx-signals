@@ -1,0 +1,23 @@
+<div class="character-add-container">
+  <form [formGroup]="characterForm()" (ngSubmit)="onSubmit()">
+    <app-custom-input
+      [control]="$any(characterForm().get('name'))"
+      placeholder="Enter Character Name"
+      type="text"
+      errorMessage="Name is REQUIRED"
+      label="Name"
+    />
+
+    <app-custom-input
+      [control]="$any(characterForm().get('image'))"
+      placeholder="Enter Character Image"
+      type="text"
+      errorMessage="Image is REQUIRED"
+      label="Image"
+    />
+
+    <button type="submit" [disabled]="characterForm().invalid">
+      {{ characterToEdit().name ? "Edit" : "Add" }} Character
+    </button>
+  </form>
+</div>
